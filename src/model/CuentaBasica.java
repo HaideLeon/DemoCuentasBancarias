@@ -5,24 +5,26 @@
  */
 package model;
 
+import java.util.Scanner;
+
 /**
  *
  * @author sams
  */
 public class CuentaBasica {
-    
+    Scanner entrada = new Scanner (System.in);
     private int numeroDeCuenta;
     private String cliente;
-    private double saldo;
-    
-    
-   
+    private double saldo = 50;
+    double cantidad;
+ 
+
     
     public CuentaBasica (int numeroDeCuenta, String cliente ){
         
         this.numeroDeCuenta = numeroDeCuenta;
         this.cliente =  cliente;
-     
+ 
     }
 
 
@@ -33,36 +35,39 @@ public class CuentaBasica {
     
    
     
-    public boolean depositar (double cantidad){
-        boolean deposito;
-        
-        deposito = cantidad > 0;
-        return deposito;
-        }
-    
-    public boolean retirar (double cantidad){
-        boolean puedoRetirar;
-        if (cantidad <= saldo){
-            puedoRetirar = true;
-        }else
-        puedoRetirar = false;
-    
-        return puedoRetirar;
-        
-    }
-            
- 
-    
-    }
-      
-        
-        
-    
-    
+public boolean deposito(double cantidad){
 
+    boolean depositar;
+    if (cantidad > 0){
+        this.saldo = this.saldo + cantidad;
+           depositar = true;
+           
+        }else{
+           depositar= false;
+        }
+        
+        return depositar;
+}
+
+
+
+
+    public boolean retirar ( double cantidad ){
+        
+        boolean puedoRetirar;
+        if  (cantidad  <= saldo){
+            this.saldo = this.saldo - cantidad ;
+            puedoRetirar = true;
+        }else{
+        puedoRetirar = false;
+        
+    } 
+    return puedoRetirar;
+    
+    }   
     
     
-    
+}
     
     
 

@@ -7,6 +7,7 @@ package democuentasbancarias;
 
 import java.util.Scanner;
 import model.CuentaBasica;
+import model.CuentaDeAhorro;
 
 /**
  *
@@ -19,60 +20,49 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        
+        CuentaDeAhorro miAhorro = new CuentaDeAhorro(132,"H"); 
         CuentaBasica miCuenta = new CuentaBasica (123,"Ivan B");
         Scanner entrada = new Scanner (System.in);
-        
-        double saldo = 0; 
-        double dP = 0; 
-        double r = 0;
-        
-        double SaldoTotal = 50;
-        
-        System.out.println("Usted tiene en su cuenta: $" +SaldoTotal);
-        
-        while (dP >= 0 | r >= 0 && SaldoTotal >= 50 ){
-        
-        System.out.print ("Cuanto desea ingresar a su cuenta: ");
-        dP = entrada.nextDouble ();
-        System.out.print ("¿Cuanto desea retirar de su cuenta?:");
-        r = entrada.nextDouble ();
-        saldo = 50;    
-            
-        if ( miCuenta.depositar(dP)){
-             
-             SaldoTotal = dP + saldo;
-             System.out.println("Su saldo existente es:" + saldo);
-             System.out.println ("Usted acaba de realizar un deposito"
-                     + " por un monoto de: " + dP + "\n\n") ; 
-             System.out.println("Su saldo actual es: "  + SaldoTotal);
-          
-         } else {
-             System.out.println("Su saldo actual es:" + saldo);
-            return ; 
-            
-         }
        
-       if ( r >= SaldoTotal){
-           
-           System.out.println("Usted solo tiene en su cuenta: " + SaldoTotal + 
-                   " y no pude retirar la cantidad que desea");
+        //variables de Cuenta Basica 
+        System.out.println ("Usted tiene en su cuenta: " + miCuenta.getSaldo() );
         
-       } else {
+        while ( miCuenta.getSaldo() >= 0 ){
+        double dP;
+       
+        System.out.print ("Cuanto desea ingresar a su cuenta: ");
+        miCuenta.deposito(dP=entrada.nextDouble ());
+       
+        System.out.println ("Ustede actualmente tiene en su cuenta "+ 
+                miCuenta.getSaldo());
+        
+        double r;
+        System.out.print ("¿Cuanto desea retirar de su cuenta?: ");
+        miCuenta.retirar(r = entrada.nextDouble());
+        System.out.println ("Le queda en su cuenta:" + miCuenta.getSaldo());
+        
+        System.out.println("Su corte mensual es: ");
+        miAhorro.realizarCorteMensual();
+        
+        
+        }
+               
+        
+       //clase Cuenta de Ahorro
+       
+       //System.out.print ("¿Cuanto desea abonar en su cuenta de ahorro?:" );
+       //ahorro = entrada.nextDouble ();
+       
+      //System.out.println("Usted ahora cuenta con un ahorro de:"+ 
+              //miAhorro.deporsitar(ahorro) );
            
-           double SaldoNuevo = SaldoTotal - r;
-           
-           System.out.println("Usted esta retirando de su cuenta: " + r);
-           System.out.println ("A usted le queda en su cuenta: " + SaldoNuevo);
-          
        }
        
-        saldo = SaldoTotal ;
-        
-    }
+       
+       
      }
 
-  }
+  
        
        
         
