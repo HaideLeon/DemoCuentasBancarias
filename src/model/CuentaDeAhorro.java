@@ -11,15 +11,16 @@ package model;
  */
 public class CuentaDeAhorro {
     
-    private int numeroDeCuenta;
-    private String cliente;
-    private double saldo ;
-    private double tasaDeInteres;
+    private final int numeroDeCuenta;
+    private final String cliente;
+    private double saldo = 50 ;
+    private double tasaDeInteres = 0.04 ;
     private double comisionPorSaldo;
     double interes ;
-    double comision = 0;
- 
-    private static final double INTERES_ANUAL = 0.04;
+    double comision;
+    int numero;
+    
+   double prueva;
     
    
   
@@ -31,7 +32,7 @@ public class CuentaDeAhorro {
     }
     
     public double getSaldo (){
-    
+        
     return saldo;
     }
     
@@ -42,19 +43,19 @@ public class CuentaDeAhorro {
         if (cantidad > 0){
             this.saldo = this.saldo + cantidad;
             depositar = true;
-        }else{
+          }else{
            
             depositar= false;
         }
         
-        return depositar;
+            return depositar;
         }
     
      public boolean retirar (double cantidad){  
          
          boolean puedoRetirar;
          
-         if ( cantidad <= saldo){
+         if ( cantidad <= this.saldo){
              this.saldo = this.saldo - cantidad;
              puedoRetirar = true;
     
@@ -66,19 +67,16 @@ public class CuentaDeAhorro {
          return puedoRetirar ;
      
 }
-   public double calcularInteres( ){
-       
-       
-       double interesMensual =(INTERES_ANUAL / 12);
-       interes =  saldo *  interesMensual;
+     
+   public double calcularInteres(){
+        
+       tasaDeInteres = (((4.00/360.00)*30) * this.saldo /100 );
           
-  return interes;
+       return tasaDeInteres;
    }
    
-   public double comisionPorSaldo(){
-       
-       double comision;
-       
+   public double comisionPorSaldo(double saldo ){
+           
        if (saldo < 1000){
            comision = 50;
        }else {
@@ -87,12 +85,24 @@ public class CuentaDeAhorro {
        return comision;
    }
    
+   public boolean quiereCorte (int numero){
+   
+       boolean siQuiere = false;
+       if (numero == 1){
+           siQuiere = true;
+       }
+       return siQuiere;
+   }
+   
    public void realizarCorteMensual(){
        
-       this.saldo = (saldo + interes - comision);
-   
+       this.saldo = (saldo + interes) - comision;
+       
+      
    
    }
+
+   
    
       
    

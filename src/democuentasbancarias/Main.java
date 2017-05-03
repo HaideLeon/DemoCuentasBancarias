@@ -20,47 +20,76 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        CuentaDeAhorro miAhorro = new CuentaDeAhorro(132,"H"); 
+        CuentaDeAhorro miAhorro = new CuentaDeAhorro(123,"Ivan B"); 
         CuentaBasica miCuenta = new CuentaBasica (123,"Ivan B");
         Scanner entrada = new Scanner (System.in);
+        
+        System.out.println("Su saldo inicial es : $" + miCuenta.getSaldo());
+        System.out.println("Se realizo un deposito por el monto de : $ 1000 ");
+        miCuenta.deposito(1000);
+        System.out.println("Se realizo un deposito por el monto de : $ 1500 ");
+        miCuenta.deposito(1500);
+        System.out.println("Usted actualmente cuenta con un saldo : $ "
+                + miCuenta.getSaldo());
+        System.out.println("Se realizo un retiro por el monto de : $ 200");
+        miCuenta.retirar(200);
+        System.out.println("Usted actualmente cuenta con un saldo : $ " + miCuenta.getSaldo());
+        System.out.println("Se realizo un deposito por el monto de : $ 300");
+        miCuenta.deposito(300);
+        System.out.println("Usted actualmente cuenta con un saldo : $ "
+                + miCuenta.getSaldo());
+        System.out.println("Se realizo un retiro por el monto de : $ 1000");
+        miCuenta.retirar(1000);
+        System.out.println("Usted actualmente cuenta con un saldo: $" + miCuenta.getSaldo() );
+         System.out.println ();
+          System.out.println ();
+        
+
+        ///Mi Cuenta de Ahorro
+        System.out.println("ESTA ES LA CUENTA DE AHORRO");
+        System.out.println("\nSu saldo inicial es : $" + miCuenta.getSaldo());
+        System.out.println("\nSe realizo un deposito por el monto de : $ 1000 ");
+        miAhorro.deporsitar(1000);
+        System.out.println("\nSe realizo un deposito por el monto de : $ 1500 ");
+        miAhorro.deporsitar(1500);
+        System.out.println("Usted actualmente cuenta con un saldo : $ "
+                + miAhorro.getSaldo());
+        System.out.println("Se realizo un retiro por el monto de : $ 200");
+        miAhorro.retirar(200);
+        System.out.println("Usted actualmente cuenta con un saldo : $ " + miAhorro.getSaldo());
+        System.out.println("Se realizo un deposito por el monto de : $ 300");
+        miAhorro.deporsitar(300);
+        System.out.println("Usted actualmente cuenta con un saldo : $ "
+                + miAhorro.getSaldo());
+        System.out.println("Se realizo un retiro por el monto de : $ 1000");
+        miAhorro.retirar(1000);
+        System.out.println("Usted actualmente cuenta con un saldo: $" + miAhorro.getSaldo() );
        
-        //variables de Cuenta Basica 
-        System.out.println ("Usted tiene en su cuenta: " + miCuenta.getSaldo() );
+         System.out.println ( );
+         System.out.println ();
         
-        while ( miCuenta.getSaldo() >= 0 ){
-        double dP;
+        System.out.println ("¿Desea saber su corte mensual?");
+        System.out.println ("Seleccione 1 si desea saber o 0 por si aun no desea conocer su corte mensual: ");
        
-        System.out.print ("Cuanto desea ingresar a su cuenta: ");
-        miCuenta.deposito(dP=entrada.nextDouble ());
-       
-        System.out.println ("Ustede actualmente tiene en su cuenta "+ 
-                miCuenta.getSaldo());
-        
-        double r;
-        System.out.print ("¿Cuanto desea retirar de su cuenta?: ");
-        miCuenta.retirar(r = entrada.nextDouble());
-        System.out.println ("Le queda en su cuenta:" + miCuenta.getSaldo());
-        
-        System.out.println("Su corte mensual es: ");
-        miAhorro.realizarCorteMensual();
-        
+        int prueba = entrada.nextInt();
+        if (miAhorro.quiereCorte(prueba)== true){
+            
+            System.out.println ("Sus intereses:"+ miAhorro.calcularInteres());
+            
+            System.out.println ("Su corte Mensual ");
+                    
+            miAhorro.realizarCorteMensual();
+             System.out.println (miAhorro.getSaldo()+ miAhorro.calcularInteres() - miAhorro.comisionPorSaldo(1650) );
         
         }
-               
         
-       //clase Cuenta de Ahorro
-       
-       //System.out.print ("¿Cuanto desea abonar en su cuenta de ahorro?:" );
-       //ahorro = entrada.nextDouble ();
-       
-      //System.out.println("Usted ahora cuenta con un ahorro de:"+ 
-              //miAhorro.deporsitar(ahorro) );
-           
-       }
-       
-       
-       
+        
+        
+        
+        
+        
      }
+}
 
   
        

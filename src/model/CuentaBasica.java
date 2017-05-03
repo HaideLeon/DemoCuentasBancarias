@@ -59,6 +59,8 @@ public boolean deposito(double cantidad){
             this.saldo = this.saldo - cantidad ;
             puedoRetirar = true;
         }else{
+            System.out.println("No cuenta con el dinero suficiente"
+                    + "para efectuar su retiro");
         puedoRetirar = false;
         
     } 
