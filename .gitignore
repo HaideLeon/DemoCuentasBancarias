@@ -1,5 +1,5 @@
 
-# Created by https://www.gitignore.io/api/windows,java,netbeans
+# Created by https://www.gitignore.io/api/java,windows,netbeans
 
 ### Java ###
 # Compiled class file
@@ -54,4 +54,4 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-# End of https://www.gitignore.io/api/windows,java,netbeans
+# End of https://www.gitignore.io/api/java,windows,netbeans
