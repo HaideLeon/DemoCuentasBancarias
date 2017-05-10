@@ -13,9 +13,9 @@ import java.util.Scanner;
  */
 public class CuentaBasica {
     Scanner entrada = new Scanner (System.in);
-    private int numeroDeCuenta;
-    private String cliente;
-    private double saldo = 50;
+   protected int numeroDeCuenta;
+   protected String cliente;
+   protected double saldo = 50;
     double cantidad;
  
 
@@ -55,7 +55,7 @@ public boolean deposito(double cantidad){
     public boolean retirar ( double cantidad ){
         
         boolean puedoRetirar;
-        if  (cantidad  <= saldo){
+        if  (cantidad  <= getSaldo() ){
             this.saldo = this.saldo - cantidad ;
             puedoRetirar = true;
         }else{

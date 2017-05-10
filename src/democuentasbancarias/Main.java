@@ -49,16 +49,16 @@ public class Main {
         System.out.println("ESTA ES LA CUENTA DE AHORRO");
         System.out.println("\nSu saldo inicial es : $" + miCuenta.getSaldo());
         System.out.println("\nSe realizo un deposito por el monto de : $ 1000 ");
-        miAhorro.deporsitar(1000);
+        miAhorro.deposito(1000);
         System.out.println("\nSe realizo un deposito por el monto de : $ 1500 ");
-        miAhorro.deporsitar(1500);
+         miAhorro.deposito(1500);
         System.out.println("Usted actualmente cuenta con un saldo : $ "
                 + miAhorro.getSaldo());
         System.out.println("Se realizo un retiro por el monto de : $ 200");
         miAhorro.retirar(200);
         System.out.println("Usted actualmente cuenta con un saldo : $ " + miAhorro.getSaldo());
         System.out.println("Se realizo un deposito por el monto de : $ 300");
-        miAhorro.deporsitar(300);
+         miAhorro.deposito(300);
         System.out.println("Usted actualmente cuenta con un saldo : $ "
                 + miAhorro.getSaldo());
         System.out.println("Se realizo un retiro por el monto de : $ 1000");
@@ -74,13 +74,11 @@ public class Main {
         int prueba = entrada.nextInt();
         if (miAhorro.quiereCorte(prueba)== true){
             
-            System.out.println ("Sus intereses:"+ miAhorro.calcularInteres());
-            
-            System.out.println ("Su corte Mensual ");
-                    
-            miAhorro.realizarCorteMensual();
-             System.out.println (miAhorro.getSaldo()+ miAhorro.calcularInteres() - miAhorro.comisionPorSaldo(1650) );
-        
+           
+                
+             System.out.println ( "Su Corte Mensual es :" +
+                     ((miAhorro.getSaldo()+ miAhorro.calcularInteres()) - miAhorro.comisionPorSaldo(1650)) );
+             
         }
         
         

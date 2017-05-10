@@ -9,12 +9,10 @@ package model;
  *
  * @author sams
  */
-public class CuentaDeAhorro {
+public class CuentaDeAhorro extends CuentaBasica {
+   
     
-    private final int numeroDeCuenta;
-    private final String cliente;
-    private double saldo = 50 ;
-    private double tasaDeInteres = 0.04 ;
+    private double tasaDeInteres = 4.0 ;
     private double comisionPorSaldo;
     double interes ;
     double comision;
@@ -25,54 +23,20 @@ public class CuentaDeAhorro {
    
   
     public CuentaDeAhorro(int numeroDeCuenta, String cliente){
+        super ( numeroDeCuenta,cliente );
         
         this.numeroDeCuenta = numeroDeCuenta;
         this.cliente = cliente;
     
     }
-    
-    public double getSaldo (){
-        
-    return saldo;
-    }
-    
-    public boolean deporsitar (double cantidad){
-        
-        boolean depositar;
-        
-        if (cantidad > 0){
-            this.saldo = this.saldo + cantidad;
-            depositar = true;
-          }else{
-           
-            depositar= false;
-        }
-        
-            return depositar;
-        }
-    
-     public boolean retirar (double cantidad){  
-         
-         boolean puedoRetirar;
-         
-         if ( cantidad <= this.saldo){
-             this.saldo = this.saldo - cantidad;
-             puedoRetirar = true;
-    
-         }else {
-             puedoRetirar = false;
-         
-         } 
-         
-         return puedoRetirar ;
-     
-}
-     
+   
    public double calcularInteres(){
-        
-       tasaDeInteres = (((4.00/360.00)*30) * this.saldo /100 );
-          
-       return tasaDeInteres;
+       
+       double tasa = this.tasaDeInteres / 360;
+       interes = tasa / 100 * 30 * getSaldo();
+       
+       System.out.println("El interes de la cuenta es de:" + interes);
+       return interes;
    }
    
    public double comisionPorSaldo(double saldo ){
@@ -81,7 +45,9 @@ public class CuentaDeAhorro {
            comision = 50;
        }else {
            comision = 0;
+           
        }
+       System.out.println("Su comision es de:" + comision);
        return comision;
    }
    
@@ -96,7 +62,7 @@ public class CuentaDeAhorro {
    
    public void realizarCorteMensual(){
        
-       this.saldo = (saldo + interes) - comision;
+       this.saldo = (getSaldo () + interes) - comision;
        
       
    
