@@ -51,7 +51,7 @@ public class CuentaDeAhorro extends CuentaBasica {
        return comision;
    }
    
-   public boolean quiereCorte (int numero){
+   public boolean quiereRealizar (int numero){
    
        boolean siQuiere = false;
        if (numero == 1){

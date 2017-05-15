@@ -15,8 +15,8 @@ public class CuentaBasica {
     Scanner entrada = new Scanner (System.in);
    protected int numeroDeCuenta;
    protected String cliente;
-   protected double saldo = 50;
-    double cantidad;
+   protected double saldo = 0;
+   double cantidad;
  
 
     
@@ -24,6 +24,7 @@ public class CuentaBasica {
         
         this.numeroDeCuenta = numeroDeCuenta;
         this.cliente =  cliente;
+        
  
     }
 
@@ -55,12 +56,16 @@ public boolean deposito(double cantidad){
     public boolean retirar ( double cantidad ){
         
         boolean puedoRetirar;
-        if  (cantidad  <= getSaldo() ){
-            this.saldo = this.saldo - cantidad ;
+        
+        
+        if  (cantidad  <= getSaldo()){
+            
+            this.saldo = this.getSaldo() - cantidad ;
+        System.out.println("Usted actualmente cuenta con un saldo : $ " + this.saldo);
             puedoRetirar = true;
         }else{
-            System.out.println("No cuenta con el dinero suficiente"
-                    + "para efectuar su retiro");
+            System.out.println("Lo sentimos no puede efectuar su retiro,"
+                    + " no cuenta con el monto que desea expedir");
         puedoRetirar = false;
         
     } 
